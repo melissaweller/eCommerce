@@ -27,7 +27,10 @@ http://localhost
 ```
 
 ## Bootstrap the project
-1. Create a file called ```.htaccess ```
+1. Create a file called 
+```
+.htaccess 
+```
 2. Copy below and don't add any other characters
 ```
 Options -MultiViews
@@ -45,3 +48,7 @@ RewriteRule ^()$ index.php?url=$1 [QSA,L]
 ```
 ## Core Folder
 holds all the framework core functionality that will not be modified by the programmer / user
+The App class is there to call the appropriate Controller class and method for the received HTTP request
+
+## Controllers
+Controllers contain the application logic that constitutes the glue between the request (after routing) the models and the views.
