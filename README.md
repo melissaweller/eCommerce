@@ -2,7 +2,10 @@
 
 ## Commands Run
 1. Created a reposity
-2. Clone the repository using: git clone ``` https://github.com/melissaweller/eCommerce.git ```
+2. Clone the repository using: git clone 
+``` 
+https://github.com/melissaweller/eCommerce.git
+```
 3. Opened that new eCommerce folder to work and place the new Web Application
 
 ## Commands to Push work to GitHub
@@ -13,10 +16,15 @@
 ## Running the Docker container to host the Web Application 
 1. Start Docker Desktop
 2. Run the command: 
-``` docker run --name myXampp -p 22:22 -p 80:80 -d -v C:/Users/2034977/Desktop/eCommerce/eCommerce:/opt/lampp/htdocs tomsik68/xampp ```
+``` 
+docker run --name myXampp -p 22:22 -p 80:80 -d -v C:/Users/2034977/Desktop/eCommerce/eCommerce:/opt/lampp/htdocs tomsik68/xampp
+ ```
 
 ## Accessing the project
-1. Open a browser to: ``` http://localhost ```
+1. Open a browser to: 
+``` 
+http://localhost 
+```
 
 ## Bootstrap the project
 1. Create a file called ```.htaccess ```
