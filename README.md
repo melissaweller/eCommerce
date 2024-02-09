@@ -1,10 +1,10 @@
 # eCommerce
 
 ## Commands Run
-1. Created a reposity
-2. Clone the repository using: git clone 
+1. Created a repository
+2. Clone the repository using: 
 ``` 
-https://github.com/melissaweller/eCommerce.git
+git clone https://github.com/melissaweller/eCommerce.git
 ```
 3. Opened that new eCommerce folder to work and place the new Web Application
 
@@ -52,3 +52,6 @@ The App class is there to call the appropriate Controller class and method for t
 
 ## Controllers
 Controllers contain the application logic that constitutes the glue between the request (after routing) the models and the views.
+
+## Routing
+Map incoming requests to different controller methods.
