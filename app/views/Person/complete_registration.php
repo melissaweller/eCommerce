@@ -18,14 +18,14 @@
 			<div class="form-group">
 				<label>Email address:<input type="email" class="form-control" name="email" placeholder="jondoe@email.com" value="<?= $data->email ?>"></label>
 			</div>
-			<div class="form-group">
+			<!-- <div class="form-group">
 				Do you want to be included on our mailing list?
 				<label><input type="radio" name="mailing_list" value="1" <?= ($data->mailing_list==1?'checked':'') ?> >Yes</label>
 				<label><input type="radio" name="mailing_list" value="-1" <?= ($data->mailing_list==-1?'checked':'') ?> >No</label>
-			</div>
+			</div> -->
 
 			<div class="form-group">
-				Do you want to be included on our following publications?
+				Do you want to be included on our following publications?<br>
 				<label><input type="checkbox" name="publications[]" value="mailing_list" <?= ($data->mailing_list==true?'checked':'') ?> >Include me on the mailing list</label>
 			</div>
 			<div class="form-group">

@@ -1,4 +1,5 @@
 <?php
+// to avoid including / requiring all our controllers and model classes...
 spl_autoload_register(
     function($class_name){
         // version 0.1 PSR-4 autoloader

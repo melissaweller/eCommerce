@@ -11,7 +11,8 @@ class App{
 
 		// defined a few routes
 		$routes = ['Person/register' => 'Person,register',
-					'Person/complete_registration' => 'Person,complete_registration'];
+					'Person/complete_registration' => 'Person,complete_registration',
+					'Person/' => 'Person,list'];
 
 		// searching - > one by one compare the url to resolve th route
 		foreach ($routes as $routeUrl => $controllerMethod) {

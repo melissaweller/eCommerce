@@ -6,6 +6,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
+
 <body>
 	<div id ='container'>
 		<form method="post" action="/Person/complete_registration">
@@ -19,7 +20,7 @@
 				<label>Email address:<input type="email" class="form-control" name="email" placeholder="jondoe@email.com"></label>
 			</div>
 			<div class="form-group">
-				Do you want to be included on our following publications?
+				Do you want to be included on our following publications?<br>
 				<label><input type="checkbox" name="publications[]" value="mailing_list">Include me on the mailing list</label>
 			</div>
 			<div class="form-group">
