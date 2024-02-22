@@ -2,29 +2,31 @@
 namespace app\core;
 
 class App{
-	function __construct(){
-		// call the appropriate controller class and method to handle the HTTP Request
+    private $routes = [];
 
-		// Routing version 0.1
-		// Add parameters -> later
-		$url = $_GET['url'];
+    public function addRoute($url,$handler){
+        $url = preg_replace('/{([^\/]+)}/', '(?<$1>[^\/]+)', $url);
+        $this->routes[$url] = $handler;
+    }
 
-		// defined a few routes
-		$routes = ['Person/register' => 'Person,register',
-					'Person/complete_registration' => 'Person,complete_registration',
-					'Person/' => 'Person,list'];
+    function __construct(){
+        $url = $_GET['url'];
 
-		// searching - > one by one compare the url to resolve th route
-		foreach ($routes as $routeUrl => $controllerMethod) {
-			if ($url == $routeUrl){
-				// run the route
-				[$controller,$method]=explode(',', $controllerMethod);
-				$controller = '\\app\\controllers\\'.$controller;
-				$controller = new $controller();
-				$controller->$method();
-				// make sure that we don't run a second route
-				break;
-			}
-		}
-	}
+        //defined a few routes "url"=>"controller,method"
+        $routes = ['Main/index' => 'Main,index',
+                    'Main/about_us' => 'Main,about_us',
+                    'Contact/index' => 'Contact,index',
+                    'Contact/read' => 'Contact,read',
+                    'Count/index' => 'Count,index'];
+
+        foreach ($routes as $routeUrl => $controllerMethod) {
+            if($url == $routeUrl){
+                [$controller,$method]=explode(',', $controllerMethod);
+                $controller = '\\app\\controllers\\'.$controller;
+                $controller = new $controller();
+                $controller->$method();
+                break;
+            }
+        }
+    }
 }

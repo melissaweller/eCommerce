@@ -1,5 +1,0 @@
-{"first_name":"Melissa","last_name":"Weller","email":"melissaweller@hotmail.com","weekly_flyer":true,"mailing_list":true}
-{"first_name":"Melissa","last_name":"Weller","email":"melissaweller@hotmail.com","weekly_flyer":true,"mailing_list":true}
-{"first_name":"Melissa","last_name":"Weller","email":"melissaweller@hotmail.com","weekly_flyer":true,"mailing_list":true}
-{"first_name":"Melissa","last_name":"Weller","email":"melissaweller@hotmail.com","weekly_flyer":true,"mailing_list":true}
-{"first_name":"Melissa","last_name":"Weller","email":"melissaweller@hotmail.com","weekly_flyer":false,"mailing_list":true}
