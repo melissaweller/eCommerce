@@ -27,9 +27,6 @@ class User extends \app\core\Controller{
 	}
 
 	function logout(){
-		//session_destroy();
-		//$_SESSION['user_id'] = null;
-
 		session_destroy();
 
 		header('location:/User/login');
@@ -87,7 +84,8 @@ class User extends \app\core\Controller{
 	}
 
 	function delete(){
-		if(!isset($_SESSION['user_id'])){
+		// is not logged in
+		if(!isset($_SESSION['user_id'])){ 
 			header('location:/User/login');
 			return;
 		}

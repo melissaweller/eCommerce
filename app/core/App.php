@@ -38,8 +38,8 @@ class App{
                     'User/logout' => 'User,logout',
                     'User/update' => 'User,update',
                     'User/delete' => 'User,delete',
-                    'User/securePlace' => 'User,securePlace'
-
+                    'User/securePlace' => 'Profile,index',
+                    'Profile/index' => 'Profile,index',
                 ];
 
         //one by one compare the url to resolve the route
