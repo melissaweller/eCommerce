@@ -10,23 +10,51 @@ class App{
     }
 
     function __construct(){
+
+  /*      $this->addRoute('Person/edit/{id}', 'Person,edit');
+        echo '<pre>';
+        print_r($this->routes);
+        echo '</pre>';
+
+*/
+//        exit();
+
+
+    	//call the appropriate controller class and method to handle the HTTP Request
+
+        //Routing version 0.1
+        //TODO: add PARAMETERS - later
         $url = $_GET['url'];
 
         //defined a few routes "url"=>"controller,method"
-        $routes = ['Main/index' => 'Main,index',
-                    'Main/about_us' => 'Main,about_us',
-                    'Contact/index' => 'Contact,index',
-                    'Contact/read' => 'Contact,read',
-                    'Count/index' => 'Count,index'];
+        $routes = ['Person/register'=>'Person,register',
+                    'Person/complete_registration'=>'Person,complete_registration',
+                    'Person/'=>'Person,list',
+                    'Person/delete' => 'Person,delete',
+                    'Person/edit/{id}' => 'Person,edit',
+                    'Person/update' => 'Person,update',
+                    'User/register' => 'User,register',
+                    'User/login' => 'User,login',
+                    'User/logout' => 'User,logout',
+                    'User/update' => 'User,update',
+                    'User/delete' => 'User,delete',
+                    'User/securePlace' => 'User,securePlace'
 
+                ];
+
+        //one by one compare the url to resolve the route
         foreach ($routes as $routeUrl => $controllerMethod) {
-            if($url == $routeUrl){
+            if($url == $routeUrl){//match the route
+                //run the route
                 [$controller,$method]=explode(',', $controllerMethod);
                 $controller = '\\app\\controllers\\'.$controller;
                 $controller = new $controller();
                 $controller->$method();
+                //make sure that we don't run a second route
                 break;
             }
         }
+
+
     }
 }
