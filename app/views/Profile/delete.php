@@ -6,18 +6,18 @@
 </head>
 <body>
 	<div class='container'>
-		<form method='post' action=''>
-			<div class="form-group">
-				<label>Username:<input type="text" class="form-control" name="username" placeholder="Jon" value='<?= $data->username ?>' /></label>
-			</div>
-			<div class="form-group">
-				<label>Password:<input type="password" class="form-control" name="password" placeholder="password" /></label>
-			</div>
+		<h1>User profile</h1>
+		<p>Do you want to proceed with deletion of your profile?</p>
+		<dl>
+			<dt>First Name</dt>
+			<dd><?= $data->first_name ?></dd>
 
-			<div class="form-group">
-				<input type="submit" name="action" value="Update" /> 
-				<a href='/User/login'>Cancel</a>
-			</div>
+			<dt>Last Name</dt>
+			<dd><?= $data->last_name ?></dd>
+		</dl>
+		<form method="post" action=''>
+			<input type="submit" name="action" value="Delete">
+			<a href='/Profile/index'>Cancel</a>
 		</form>
 	</div>
 </body>

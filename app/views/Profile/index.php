@@ -5,7 +5,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div id='container'>
+	<div class='container'>
 		<h1>User profile</h1>
 		<dl>
 			<dt>First Name</dt>
@@ -14,6 +14,8 @@
 			<dt>Last Name</dt>
 			<dd><?= $data->last_name ?></dd>
 		</dl>
+		<a href='/Profile/modify'>Modify my profile</a><br>
+		<a href='/Profile/delete'>Delete my profile</a>
 	</div>
 </body>
 </html>
