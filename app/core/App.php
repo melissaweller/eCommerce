@@ -29,8 +29,8 @@ class App{
 
                 return [$controllerMethod, $namedParams];
             }
-            return false;
         }
+        return false;
     }
 
     function __construct(){
