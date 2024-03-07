@@ -1,34 +1,21 @@
 <?php
 namespace app\controllers;
 
+// applying the Login condition to the whole class
+#[\app\filters\Login]
 class Profile extends \app\core\Controller {
 	
+	#[\app\filters\HasProfile]
 	public function index(){
-		if(!isset($_SESSION['user_id'])){
-			header('location:/User/login');
-			return;
-		}
-
 		$profile = new \app\models\Profile();
 		$profile = $profile->getForUser($_SESSION['user_id']);
 
 		// redirect a user that has no profile to the profile creation URL
-		if($profile){
-			$this->view('Profile/index',$profile);
-		}
-
-		else{
-			header('location:/Profile/create');
-		}
+		$this->view('Profile/index',$profile);
+		
 	}
 
 	public function create(){
-		// check that the user is logged in
-		if(!isset($_SESSION['user_id'])){
-			header('location:/User/login');
-			return;
-		}
-
 		if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 			// make a new profile object
 			$profile = new \app\models\Profile();
@@ -51,12 +38,6 @@ class Profile extends \app\core\Controller {
 	}
 
 	public function modify(){
-		// check that the user is logged in
-		if(!isset($_SESSION['user_id'])){
-			header('location:/User/login');
-			return;
-		}
-
 		$profile = new \app\models\Profile();
 		$profile = $profile->getForUser($_SESSION['user_id']);
 
@@ -80,12 +61,6 @@ class Profile extends \app\core\Controller {
 
 	public function delete(){
 		// present the user with the form to confirm the deletion that is requested and delete if the form is submitted
-
-		if(!isset($_SESSION['user_id'])){
-			header('location:/User/login');
-			return;
-		}
-
 		$profile = new \app\models\Profile();
 		$profile = $profile->getForUser($_SESSION['user_id']);
 

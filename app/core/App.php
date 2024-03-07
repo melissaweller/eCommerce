@@ -4,9 +4,6 @@ namespace app\core;
 class App{
     private $routes = [];
 
-    // 'Person/edit/{id}' => 'Person,edit'
-    // 'Person/edit/(?<id>[^\/]' => 'Person,edit'
-
     public function addRoute($url,$handler){
         $url = preg_replace('/{([^\/]+)}/', '(?<$1>[^\/]+)', $url);
         $this->routes[$url] = $handler;
@@ -34,16 +31,7 @@ class App{
     }
 
     function __construct(){
-
-        // $this->addRoute('Person/edit/{id}', 'Person,edit');
-        // echo '<pre>';
-        // print_r($this->routes);
-        // echo '</pre>';
-        // exit();
-
-
     	//call the appropriate controller class and method to handle the HTTP Request
-
         //Routing version 0.1
         $url = $_GET['url'];
 
@@ -68,11 +56,33 @@ class App{
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 
+        if(!$controllerMethod){
+            return;
+        }
+
         [$controller,$method]=explode(',', $controllerMethod);
 
         $controller = '\app\controllers\\' . $controller;
 
         $controllerInstance = new $controller();
+
+        // create an object that can get information about the controller
+        $reflection = new \ReflectionClass($controllerInstance);
+
+        // get the attributes from the controller
+        $classAttributes = $reflection->getAttributes();
+        $methodAttributes = $reflection->getMethod($method)->getAttributes();
+
+        $attributes = array_merge($classAttributes, $methodAttributes);
+
+        foreach ($attributes as $attribute) {
+            // instantiate the filter
+            $filter = $attribute->newInstance();
+            // run the filter and test if redirected
+            if($filter->redirected()){
+                return;
+            }
+        }
 
         call_user_func_array([$controllerInstance, $method], $namedParams);
     }
