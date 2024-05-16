@@ -55,3 +55,13 @@ Controllers contain the application logic that constitutes the glue between the 
 
 ## Routing
 Map incoming requests to different controller methods.
+
+## Codeception
+'''
+https://github.com/paquettm/eComH24S1/blob/main/Codeception_LinuxDocker_Windows.md
+'''
+
+## I18N
+'''
+https://github.com/paquettm/eComH24S1/blob/main/Internationalization.md
+'''
